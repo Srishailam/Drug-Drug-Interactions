@@ -11,8 +11,10 @@ function MultiSelect(props) {
   const [selectedOptions, setSelectedOptions] = useState([])
 
   const handleOptionChange = userValue => {
+    const maxLimitOptions= 20;
     if (userValue) {
-      setSelectedOptions(prev => [...userValue]);
+      let maxOptions = userValue.length > 20 ? userValue.slice(0,maxLimitOptions) : userValue;
+      setSelectedOptions(prev => [...maxOptions]);
       props.handleAllOptionsChange(userValue, id);
     } else {
       setSelectedOptions([]);
