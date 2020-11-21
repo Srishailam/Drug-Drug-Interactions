@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import makeAnimated from 'react-select/animated';
 import './MultiSelect.css';
 
@@ -20,25 +20,14 @@ function MultiSelect(props) {
     }
 
   };
-  const disableDefaultStyle = {
-    // control: base => ({
-    //   ...base,
-    //   border: 0,
-    //   boxShadow: 0,
-    //   "&:hover": {
-    //     border: 0
-    //   }
-    // })
-  };
   return (
     <>
-    <Select
+    <CreatableSelect
       closeMenuOnSelect={false}
       components={animatedComponents}
       isMulti
       options={options}
       className="MultiSelect_DrugNames"
-      styles={disableDefaultStyle}
       onChange={handleOptionChange}
       value={selectedOptions}
       placeholder="Select atleast two drugs..."

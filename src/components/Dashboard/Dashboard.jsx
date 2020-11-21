@@ -7,8 +7,6 @@ import DrugInteractionItemList from './../DrugInteractionItemList/DrugInteractio
 import "./Dashboard.css"
 
 import Data from './../../data/interactions.json';
-// console.log(Data);
-
 
 function Dashboard() {
 
@@ -32,7 +30,6 @@ function Dashboard() {
   }
 
   const handleAllOptionsChange = (selectedOptions, id) => {
-    console.log('selectedOptions:', selectedOptions, id);
 
     const newValues = inputFields.map(item => {
       if (item.id === id) {
@@ -49,7 +46,6 @@ function Dashboard() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let allCombos = []
-    console.log('inputs', inputFields);
     let copyInputFields = [...inputFields];
     copyInputFields.forEach(item => {
       const eachInputFieldSelectedDrugs = item.drugNames;
@@ -59,17 +55,14 @@ function Dashboard() {
           allCombos.push([eachInputFieldSelectedDrugs[i], eachInputFieldSelectedDrugs[j]])
         }
       }
-      console.log('allCombos:', allCombos)
       let isDone = false;
       allCombos.some(eachCombo => {
         let drugOne = eachCombo[0];
         let drugTwo = eachCombo[1];
-        //Data.forEach( eachItem => {
         for (let eachItem of Data) {
           let eachItemDrugs = eachItem.drugs;
           let isExists = eachItemDrugs.includes(drugOne) && eachItemDrugs.includes(drugTwo);
           if (isExists) {
-            console.log('isExists', isExists)
             if (default_obj.severity === "major") {
               default_obj.severity = eachItem.severity;
               default_obj.interaction = eachItem.description;
@@ -86,7 +79,6 @@ function Dashboard() {
           } else {
             item.result = { ...default_obj };
           }
-          //})
         }
         return isDone;
       })
