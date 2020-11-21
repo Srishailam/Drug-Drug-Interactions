@@ -1,0 +1,20 @@
+.Dashboard{
+  max-width: 760px;
+  margin: 50px auto;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+.Dashboard_Multi_Select{
+  display: flex;
+  justify-content: space-between;
+  padding: 45px;
+}
+.Dashboard_Multi_Select .MultiSelect_DrugNames{
+  width: 100%;
+}
+.Container_Select_Buttons{
+  display: flex;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,8 @@
+.MultiSelect{
+  display: flex;
+  justify-content: space-between;
+  padding: 45px;
+}
+.MultiSelect_DrugNames {
+  width: 100%;
+}
